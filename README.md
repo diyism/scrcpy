@@ -1,4 +1,5 @@
-    把scrcpy作为debian的摄像头比vdo ninja+obs studio 更简单(debian里甚至没有功能完整的obs studio的包, 缺 sources browser功能):
+    把scrcpy作为debian的摄像头比vdo ninja+obs studio 更简单,
+    debian里甚至没有功能完整的obs studio的包, 缺 sources browser功能
 
     手机摄像头当作debian的扫描仪摄像头使用:
     手机设置settings/system/developer/wireless debug及disable timeout,
