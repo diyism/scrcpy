@@ -1,6 +1,10 @@
     把scrcpy作为debian的摄像头比vdo ninja+obs studio 更简单(debian里甚至没有功能完整的obs studio的包, 缺 sources browser功能):
+
+    手机摄像头当作debian的扫描仪摄像头使用:
     手机设置settings/system/developer/wireless debug及disable timeout,
     从debian 进行adb pair及adb connect, 以后只要adb devices就可以看到, 但是手机里wireless debug有可能会自动关掉
+    手机安装Fullscreen USB StreamCam应用, 调整好水平支架高度
+    
     debian执行:
     加载虚拟摄像头:
     $ sudo modprobe v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
