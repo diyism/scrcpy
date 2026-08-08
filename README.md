@@ -1,3 +1,19 @@
+    把scrcpy作为debian的摄像头比vdo ninja+obs studio 更简单(debian里甚至没有功能完整的obs studio的包, 缺 sources browser功能):
+    手机设置settings/system/developer/wireless debug及disable timeout,
+    从debian 进行adb pair及adb connect, 以后只要adb devices就可以看到, 但是手机里wireless debug有可能会自动关掉
+    debian执行:
+    加载虚拟摄像头:
+    $ sudo modprobe v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
+    确认设备:
+    $ v4l2-ctl --list-devices
+    直接转发手机摄像头在android 12之下会失败(报错Camera mirroring is not supported before Android 12):
+    $ scrcpy --video-source=camera --camera-facing=front --v4l2-sink=/dev/video0 --no-audio
+    在android 11只能用转发整个手机屏幕到debian:
+    $ scrcpy --v4l2-sink=/dev/video0
+    截屏一张:
+    $ ffmpeg -f v4l2 -i /dev/video0 -frames:v 1 a.png
+
+
 > [!WARNING]
 > **This GitHub repo (<https://github.com/Genymobile/scrcpy>) is the only official
 source for the project. Do not download releases from random websites, even if
