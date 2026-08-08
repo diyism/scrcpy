@@ -16,6 +16,8 @@
     $ scrcpy --v4l2-sink=/dev/video0
     截屏一张:
     $ ffmpeg -i /dev/video0 -frames:v 1 a.png
+    调整水平手机架高度到A4纸两侧边刚好对齐Fullscreen USB StreamCam两侧边之后, 裁剪掉A4纸上方和下方的桌面图像 而得到完整铺满的A4纸内容:
+    $ ffmpeg -i /dev/video0 -vf "crop=iw:ih-800:0:400" -frames:v 1 a.png
 
 
 > [!WARNING]
