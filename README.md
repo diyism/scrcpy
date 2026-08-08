@@ -11,7 +11,7 @@
     在android 11只能用转发整个手机屏幕到debian:
     $ scrcpy --v4l2-sink=/dev/video0
     截屏一张:
-    $ ffmpeg -f v4l2 -i /dev/video0 -frames:v 1 a.png
+    $ ffmpeg -i /dev/video0 -frames:v 1 a.png
 
 
 > [!WARNING]
