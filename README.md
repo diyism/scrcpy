@@ -21,6 +21,11 @@
     $ ffmpeg -i /dev/video0 -vf "crop=iw:ih-800:0:400" -frames:v 1 a.png
     $ convert a.png -colorspace Gray -normalize -lat 15x15-10% a.png
 
+    unpaper的效果似乎没有ImageMagick的convert效果好, 但是噪点更弱些:
+    $ sudo apt install unpaper
+    $ unpaper -gs 5,5 -gp 1,1 -gt 0.9 a.png b.png
+    $ convert b.png b.png
+
 
 > [!WARNING]
 > **This GitHub repo (<https://github.com/Genymobile/scrcpy>) is the only official
