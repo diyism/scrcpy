@@ -19,6 +19,7 @@
     $ ffmpeg -i /dev/video0 -frames:v 1 a.png
     调整水平手机架高度到A4纸两侧边刚好对齐Fullscreen USB StreamCam两侧边之后, 裁剪掉A4纸上方和下方的桌面图像 而得到完整铺满的A4纸内容:
     $ ffmpeg -i /dev/video0 -vf "crop=iw:ih-800:0:400" -frames:v 1 a.png
+    若降低手机高度去掉大部分A4左右白边则要保留更多上下方才能避免切掉文字: $ ffmpeg -i /dev/video0 -vf "crop=iw:ih-400:0:200" -frames:v 1 a.png
     $ convert a.png -colorspace Gray -normalize -lat 15x15-10% a.png
 
     unpaper的效果似乎没有ImageMagick的convert效果好, 但是噪点更弱些:
