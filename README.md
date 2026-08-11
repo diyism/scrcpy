@@ -21,6 +21,9 @@
     $ ffmpeg -i /dev/video0 -vf "crop=iw:ih-800:0:400" -frames:v 1 a.png
     若降低手机高度去掉大部分A4左右白边则要保留更多上下方才能避免切掉文字: $ ffmpeg -i /dev/video0 -vf "crop=iw:ih-400:0:200" -frames:v 1 a.png
     $ convert a.png -colorspace Gray -normalize -lat 15x15-10% a.png
+    用firefox的打印菜单 和 CUPS管理的打印机(http://localhost:631/printers) 来打印:
+    $ firefox a.png
+    Firefox右上角"三"符号菜单>Print > "Copies:1,Orientation:portrait,Pages:current,Paper size:A4,Scale:128,Pages per sheet:1,Margins:None,Print headers and footers:no > Print
 
     unpaper的效果似乎没有ImageMagick的convert效果好, 但是噪点更弱些:
     $ sudo apt install unpaper
