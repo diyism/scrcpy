@@ -3,7 +3,10 @@
 
     手机摄像头当作debian的扫描仪摄像头使用:
     手机设置settings/system/developer/wireless debug及disable timeout,
-    从debian 进行adb pair及adb connect, 以后只要adb devices就可以看到, 但是手机里wireless debug有可能会自动关掉
+    从debian 进行adb pair及adb connect, 以后只要adb devices就可以看到,
+    但是手机里wireless debug有可能会自动关掉, 需要安装automate, 启动More flows搜索Keep wireless debugging enabled, 下载后退到automate首页启动该flow,
+    首次start可能报错(即使看起来3个权限都授予了), 需要执行一次adb shell pm grant com.llamalab.automate android.permission.WRITE_SECURE_SETTINGS
+    
     手机安装Fullscreen USB StreamCam应用, 调整好水平支架高度
     
     debian执行:
