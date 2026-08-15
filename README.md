@@ -38,7 +38,7 @@
     $ sudo apt install cups
     $ sudo systemctl enable --now cups
     $ sudo usermod -aG lpadmin $USER
-    # Local Printers:打印机品牌型号 > Continue Buttong > Sharing: Share This Printer
+    # Local Printers:打印机品牌型号 > Continue Button > Sharing: Share This Printer
     在debian的https://192.168.1.2:631/admin 也要设置sharing:
     # Server > Share printers connected to this system
 
