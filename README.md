@@ -35,9 +35,12 @@
 
     在debian的https://192.168.1.103:631/admin/ 添加usb打印机 需要勾选 sharing,
     才能在android的AndroidCupsPrint(https://github.com/BenoitDuffez/AndroidCupsPrint) 或 cpuslink app里添加 https://192.168.1.2:631/printers/F11  并正常使用, 否则报错: printer is not responding:
-    Local Printers:打印机品牌型号 > Continue Buttong > Sharing: Share This Printer
+    $ sudo apt install cups
+    $ sudo systemctl enable --now cups
+    $ sudo usermod -aG lpadmin $USER
+    # Local Printers:打印机品牌型号 > Continue Buttong > Sharing: Share This Printer
     在debian的https://192.168.1.2:631/admin 也要设置sharing:
-    
+    # Server > Share printers connected to this system
 
 > [!WARNING]
 > **This GitHub repo (<https://github.com/Genymobile/scrcpy>) is the only official
