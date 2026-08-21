@@ -3,7 +3,10 @@
 
     手机摄像头当作debian的扫描仪摄像头使用:
     手机设置settings/system/developer/wireless debug及disable timeout,
-    从debian 进行adb pair及adb connect, 以后只要adb devices就可以看到, 但是手机里wireless debug有可能会自动关掉
+    从debian 进行adb pair及adb connect, 以后只要adb devices就可以看到,
+    但是手机里wireless debug有可能会自动关掉, 需要安装automate, 启动More flows搜索Keep wireless debugging enabled, 下载后退到automate首页启动该flow,
+    首次start可能报错(即使看起来3个权限都授予了), 需要执行一次adb shell pm grant com.llamalab.automate android.permission.WRITE_SECURE_SETTINGS
+    
     手机安装Fullscreen USB StreamCam应用, 调整好水平支架高度
     
     debian执行:
@@ -21,12 +24,23 @@
     $ ffmpeg -i /dev/video0 -vf "crop=iw:ih-800:0:400" -frames:v 1 a.png
     若降低手机高度去掉大部分A4左右白边则要保留更多上下方才能避免切掉文字: $ ffmpeg -i /dev/video0 -vf "crop=iw:ih-400:0:200" -frames:v 1 a.png
     $ convert a.png -colorspace Gray -normalize -lat 15x15-10% a.png
+    用firefox的打印菜单 和 CUPS管理的打印机(http://localhost:631/printLocal Printers:Local Printers:Local Printers:Local Printers:Local Printers:Local Printers:Local Printers:ers) 来打印:
+    $ firefox a.png
+    Firefox右上角"三"符号菜单>Print > "Copies:1,Orientation:portrait,Pages:current,Paper size:A4,Scale:128,Pages per sheet:1,Margins:None,Print headers and footers:no > Print
 
     unpaper的效果似乎没有ImageMagick的convert效果好, 但是噪点更弱些:
     $ sudo apt install unpaper
     $ unpaper -gs 5,5 -gp 1,1 -gt 0.9 a.png b.png
     $ convert b.png b.png
 
+    在debian的https://192.168.1.103:631/admin/ 添加usb打印机 需要勾选 sharing,
+    才能在android的AndroidCupsPrint(https://github.com/BenoitDuffez/AndroidCupsPrint) 或 cpuslink app里添加 https://192.168.1.2:631/printers/F11  并正常使用, 否则报错: printer is not responding:
+    $ sudo apt install cups
+    $ sudo systemctl enable --now cups
+    $ sudo usermod -aG lpadmin $USER
+    # Local Printers:打印机品牌型号 > Continue Button > Sharing: Share This Printer
+    在debian的https://192.168.1.2:631/admin 也要设置sharing:
+    # Server > Share printers connected to this system
 
 > [!WARNING]
 > **This GitHub repo (<https://github.com/Genymobile/scrcpy>) is the only official
